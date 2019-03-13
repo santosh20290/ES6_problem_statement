@@ -1,0 +1,181 @@
+----------------
+| Array Helper |
+----------------
+
+	========
+	forEach
+	========
+
+	============
+	Example 1 :
+	============
+
+	let colors = ["red","blue","green","pink"];
+	let tempColors = [];
+	colors.forEach(function(color){
+		tempColors.push(color);
+	  console.log(color);
+	});
+	tempColors
+
+	===========
+	Example 2 :
+	===========
+
+	//create an array of numbers
+
+	let numbers = [1,2,3,4,5];
+	let sum = 0;
+	numbers.forEach(function(number){
+		sum += number;
+	});
+	sum
+
+	=============
+	Excersize : 1
+	=============
+
+	Refactor the following code with foreach
+
+	function handlePosts() {
+	    var posts = [
+	      { id: 23, title: 'Daily JS News' },
+	      { id: 52, title: 'Code Refactor City' },
+	      { id: 105, title: 'The Brightest Ruby' }
+	    ];
+	    
+	    for (var i = 0; i < posts.length; i++) {
+	      savePost(posts[i]);
+	    }
+	}
+
+	=============
+	Excersize : 2
+	=============
+
+	The array below contains an array of objects, each of which is a representation of an image. &nbsp;Using the forEach helper, calculate the area of each image and store it in a new array called 'areas'. &nbsp;The area of an image can be calculated as 'image.height * image.width'.
+
+	var images = [
+	  { height: 10, width: 30 },
+	  { height: 20, width: 90 },
+	  { height: 54, width: 32 }
+	];
+	var areas = [];
+
+--------------
+| map Helper |
+--------------
+
+===========
+Example 1 : 
+===========
+
+doubles the value of each element of array
+
+var numbers = [1,2,3];
+var doubled = [];
+
+for(var i = 0; i < numbers.length; i++){
+	doubled.push(numbers[i] * 2);
+}
+
+var doubled = numbers.map(function(number){
+	return number * 2;
+});
+
+numbers
+doubled
+
+===========
+Example 2 :
+===========
+
+pluck the value
+
+var cars = [
+	{name : "suzuki", price : "cheap"},
+  {name : "ferari", price : "expensive"}
+]
+cars
+
+let price = cars.map(function(car){
+	return car.price;
+});
+
+price
+
+
+Plucking Values
+
+
+======
+filter
+======
+
+Example 1
+
+var products = [
+  {name:"apple",type:"fruits"},
+  {name:"cucumber",type:"vegitable"},
+  {name:"orage",type:"fruits"},
+  {name:"flower",type:"vegitable"}
+];
+products
+var fruites = [];
+for (let i=0;i<products.length;i++){
+  console.log(products[i]);
+ if(products[i]["type"] === "vegitable"){
+   fruites.push(products[i]);
+ }
+}
+fruites
+
+var fruites = products.filter(function(product){
+	return product.type == "fruits"
+});
+
+fruites
+
+Example 2
+
+var products = [
+  {name:"apple",type:"fruits",qty : 10, price: 15},
+  {name:"cucumber",type:"vegitable",qty : 5, price: 10},
+  {name:"orage",type:"fruits",qty : 0, price: 7},
+  {name:"flower",type:"vegitable",qty : 0, price: 10}
+];
+
+//type is 'vegetable', quantity is greter than 0 and price is less than 10
+
+products.filter(function(product){
+	return product.type === 'vegitable' && product.qty > 0 && product.price < 10 ;
+});
+
+
+------------
+|Find helper|
+------------
+
+var users = [
+{name : 'pankaj'},
+{name : 'prassana'},
+{name : 'mohasin'},
+{name : 'ganesh'}
+];
+
+var user;
+for (var i=0; i<users.length ; i++){
+	if(user[i].name === "ganesh"){
+		user = users[i];
+	}
+}
+
+user
+
+users.find(function(user){
+	return user.name == "ganesh";
+})
+
+real case
+
+to find the detail view by id in json 
